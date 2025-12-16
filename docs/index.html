@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>COMPANY Cognito SSO Terraform</title>
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <header class="wrap">
+      <h1>COMPANY Cognito SSO Terraform</h1>
+      <p class="muted">
+        Provision Cognito User Pool + App Client + SAML IdP + client enablement using three small Terraform stacks.
+      </p>
+      <nav class="nav">
+        <a href="architecture.html">Architecture</a>
+        <a href="saml-metadata.html">SAML Metadata</a>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="../README.md">Repo README</a>
+      </nav>
+    </header>
+
+    <main class="wrap grid">
+      <section class="card">
+        <h2>Stacks</h2>
+        <ol>
+          <li><code>terraform/01-user-pool</code> — user pool + app client</li>
+          <li><code>terraform/02-saml-idp</code> — external SAML IdP</li>
+          <li><code>terraform/03-app-client-saml</code> — enable IdP on client</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>Enable GitHub Pages</h2>
+        <p>
+          In GitHub: <b>Settings → Pages</b> and set:
+        </p>
+        <ul>
+          <li><b>Source:</b> Deploy from a branch</li>
+          <li><b>Branch:</b> <code>main</code></li>
+          <li><b>Folder:</b> <code>/docs</code></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Quick usage</h2>
+        <pre><code>cd terraform/01-user-pool && terraform init && terraform apply
+cd ../02-saml-idp && terraform init && terraform apply
+cd ../03-app-client-saml && terraform init && terraform apply</code></pre>
+      </section>
+
+      <section class="card">
+        <h2>Security notes</h2>
+        <ul>
+          <li>Don’t commit SAML metadata or secrets</li>
+          <li>Use AWS Secrets Manager for IdP metadata XML</li>
+          <li>Least-privilege IAM for CI/CD</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="wrap muted">
+      <p>© COMPANY — generated scaffold</p>
+    </footer>
+  </body>
+</html>
