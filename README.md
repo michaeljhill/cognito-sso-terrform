@@ -23,3 +23,5 @@ cd ../03-app-client-saml && terraform init && terraform apply
 - Do **not** commit SAML metadata or secrets into git.
 - Store IdP metadata XML in AWS Secrets Manager.
 - GitHub Pages site lives in `/docs` (enable in repo settings: Pages → Deploy from branch → `main` → `/docs`).
+- Note the naming convention.  To make naming unique (required if you are using the aws cognito domain for withorization) pool domain name is company followed by user pool name.  all files will follow this convention to make automation easier.
+- READ THE COMMENTS IN THE TERRAFORM SCRIPT!  They are there to help :)
